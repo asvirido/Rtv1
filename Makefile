@@ -18,7 +18,7 @@ MLX = -lmlx -framework OpenGL -framework AppKit
 
 HEADER = head.h
 
-SRC = main.c
+SRC = ./SRC/main.c
 
 BINS = $(SRC:.c=.o)
 

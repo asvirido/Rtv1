@@ -40,5 +40,3 @@ fclean: clean
 	make -C libft/ fclean
 
 re: fclean all
-
-all_clean: all clean

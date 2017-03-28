@@ -12,8 +12,6 @@
 
 #ifndef HEAD_H
 # define HEAD_H
-# define SIZE_Y 800
-# define SIZE_X	800
 # define RAD 3.14 / 180.0
 # include <stdlib.h>
 # include <unistd.h>
@@ -22,7 +20,26 @@
 # include <fcntl.h>
 # include <mlx.h>
 # include <math.h>
-# include "libft/libft.h"
 # include <stdio.h>
+# include "SRC/Vector/vector.h"
+# include "SRC/mlx_src/mlx_src.h"
+
+typedef struct	s_rtv1
+{
+	t_mlx	*obj;
+	t_img	*img;
+}				t_rtv1;
+
+typedef	struct	s_sphere
+{
+	t_vector	*position;
+	double		radius;
+}				t_sphere;
+
+typedef	struct	s_ray
+{
+	t_vector	*origin;
+	t_vector	*direction;
+}				t_ray;
 
 #endif

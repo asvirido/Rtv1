@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fdf
+NAME = RTv1
 
 FLAGS = -c -O2
 
@@ -18,27 +18,31 @@ MLX = -lmlx -framework OpenGL -framework AppKit
 
 HEADER = head.h
 
-SRC = ./SRC/main.c
+VECTOR =./SRC/Vector/addition_vector.c\
+		./SRC/Vector/cos_angle_between_vector.c\
+		./SRC/Vector/module_vector.c\
+		./SRC/Vector/multiplication_vector.c\
+		./SRC/Vector/product_vectors.c\
+		./SRC/Vector/scalar_vector.c\
+		./SRC/Vector/subtraction_vector.c\
+
+SRC =	./SRC/main.c\
+		$(VECTOR)\
 
 BINS = $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(BINS)
-	make -C libft/
-	gcc -o $(NAME) $(BINS) $(MLX)
+	@ gcc -o $(NAME) $(BINS) $(MLX)
 
 %.o: %.c $(HEADER)
-	gcc $(FLAGS) -o  $@ $<
+	@ gcc $(FLAGS) -o  $@ $<
 
 clean:
-	 /bin/rm -f $(BINS)
-	 make -C libft/ clean
+	@ /bin/rm -f $(BINS)
 
 fclean: clean
-	/bin/rm -f $(NAME)
-	make -C libft/ fclean
+	@ /bin/rm -f $(NAME)
 
 re: fclean all
-
-all_clean: all clean

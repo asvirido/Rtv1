@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_xpm.c                                       :+:      :+:    :+:   */
+/*   create_rt.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asvirido <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/19 17:12:25 by asvirido          #+#    #+#             */
-/*   Updated: 2017/02/19 17:12:27 by asvirido         ###   ########.fr       */
+/*   Created: 2017/03/29 19:45:36 by asvirido          #+#    #+#             */
+/*   Updated: 2017/03/31 12:00:30 by asvirido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx_src.h"
+#include "../../head.h"
 
-t_xpm	*create_xpm(t_mlx *obj, char *file)
+t_rtv1		*create_rtv1(void)
 {
-	t_xpm	*new;
+	t_rtv1		*rtv1;
 
-	new = (t_xpm*)malloc(sizeof(t_xpm));
-	new->width = 0;
-	new->height = 0;
-	new->bits = 0;
-	new->size_line = 0;
-	new->end = 0;
-	new->xpm = MLX_XPM_FILE(obj->mlx, file, &new->width, &new->height);
-	new->data = CREATE_IMAGE(new->xpm, &new->bits, &new->size_line, &new->end);
-	return (new);
+	rtv1 = (t_rtv1*)malloc(sizeof(t_rtv1) + 1);
+	rtv1->ray = create_ray();
+	rtv1->sphere = create_shpere();
+	rtv1->obj = object_mlx();
+	rtv1->img = create_img(rtv1->obj);
+	return (rtv1);
 }

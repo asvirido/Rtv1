@@ -14,18 +14,17 @@
 # define MLX_SRC_H
 # define CREATE_IMAGE mlx_get_data_addr
 # define MLX_XPM_FILE mlx_xpm_file_to_image
-# define PUT_IMAGE mlx_put_image_to_window
-# define SIZE_Y 40
-# define SIZE_X	40
+# define PUT_IMG_WIN mlx_put_image_to_window
+# define SIZE_Y 800
+# define SIZE_X	800
 # include <mlx.h>
 # include <stdlib.h>
-# include <stdio.h>
 
 typedef	struct	s_color
 {
-	double		red;
-	double		blue;
-	double		green;
+	int			red;
+	int			blue;
+	int			green;
 }				t_color;
 
 typedef struct	s_mlx
@@ -57,5 +56,6 @@ typedef struct	s_xpm
 t_mlx			*object_mlx(void);
 t_img			*create_img(t_mlx *obj);
 t_xpm			*create_xpm(t_mlx *obj, char *file);
+void 			put_img(t_img *img, int x, int y, t_color *color);
 
 #endif

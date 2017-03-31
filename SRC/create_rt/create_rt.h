@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_xpm.c                                       :+:      :+:    :+:   */
+/*   create_rt.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asvirido <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/19 17:12:25 by asvirido          #+#    #+#             */
-/*   Updated: 2017/02/19 17:12:27 by asvirido         ###   ########.fr       */
+/*   Created: 2017/03/29 19:51:49 by asvirido          #+#    #+#             */
+/*   Updated: 2017/03/29 19:51:51 by asvirido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx_src.h"
 
-t_xpm	*create_xpm(t_mlx *obj, char *file)
+#ifndef CREATE_RT_H
+# define CREATE_RT_H
+
+# include "../Vector/vector.h"
+
+typedef	struct	s_sphere
 {
-	t_xpm	*new;
+	t_vector	*position;
+	double		radius;
+	double		radius_pow;
+}				t_sphere;
 
-	new = (t_xpm*)malloc(sizeof(t_xpm));
-	new->width = 0;
-	new->height = 0;
-	new->bits = 0;
-	new->size_line = 0;
-	new->end = 0;
-	new->xpm = MLX_XPM_FILE(obj->mlx, file, &new->width, &new->height);
-	new->data = CREATE_IMAGE(new->xpm, &new->bits, &new->size_line, &new->end);
-	return (new);
-}
+typedef	struct	s_ray
+{
+	t_vector	*origin;
+	t_vector	*direction;
+	double 		scalar_ray_direction;
+}				t_ray;
+
+
+t_sphere	*create_shpere(void);
+t_ray		*create_ray(void);
+
+#endif

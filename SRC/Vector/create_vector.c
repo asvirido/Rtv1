@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_xpm.c                                       :+:      :+:    :+:   */
+/*   create_vector.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asvirido <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/19 17:12:25 by asvirido          #+#    #+#             */
-/*   Updated: 2017/02/19 17:12:27 by asvirido         ###   ########.fr       */
+/*   Created: 2017/03/29 19:55:59 by asvirido          #+#    #+#             */
+/*   Updated: 2017/03/29 19:55:59 by asvirido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx_src.h"
+#include "vector.h"
 
-t_xpm	*create_xpm(t_mlx *obj, char *file)
+t_vector 	*create_vector(void)
 {
-	t_xpm	*new;
+	t_vector *new;
 
-	new = (t_xpm*)malloc(sizeof(t_xpm));
-	new->width = 0;
-	new->height = 0;
-	new->bits = 0;
-	new->size_line = 0;
-	new->end = 0;
-	new->xpm = MLX_XPM_FILE(obj->mlx, file, &new->width, &new->height);
-	new->data = CREATE_IMAGE(new->xpm, &new->bits, &new->size_line, &new->end);
+	new = (t_vector*)malloc(sizeof(t_vector) + 1);
+	new->x = 0;
+	new->y = 0;
+	new->z = 0;
 	return (new);
 }

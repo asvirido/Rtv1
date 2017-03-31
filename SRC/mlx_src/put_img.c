@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_xpm.c                                       :+:      :+:    :+:   */
+/*   put_img.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asvirido <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/19 17:12:25 by asvirido          #+#    #+#             */
-/*   Updated: 2017/02/19 17:12:27 by asvirido         ###   ########.fr       */
+/*   Created: 2017/03/31 12:16:15 by asvirido          #+#    #+#             */
+/*   Updated: 2017/03/31 12:16:17 by asvirido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_src.h"
 
-t_xpm	*create_xpm(t_mlx *obj, char *file)
+void 			put_img(t_img *img, int x, int y, t_color *color)
 {
-	t_xpm	*new;
+   int		pix;
 
-	new = (t_xpm*)malloc(sizeof(t_xpm));
-	new->width = 0;
-	new->height = 0;
-	new->bits = 0;
-	new->size_line = 0;
-	new->end = 0;
-	new->xpm = MLX_XPM_FILE(obj->mlx, file, &new->width, &new->height);
-	new->data = CREATE_IMAGE(new->xpm, &new->bits, &new->size_line, &new->end);
-	return (new);
+   if ((y >= 0 && x >= 0) && (y < SIZE_Y && x < SIZE_X))
+   {
+   	pix = y * img->size_line + x * 4;
+   	if (x < SIZE_Y * SIZE_X * 4)
+   	{
+   		img->line[pix] = color->blue;
+   		img->line[pix + 1] = color->green;
+   		img->line[pix + 2] = color->red;
+   	}
+   }
 }

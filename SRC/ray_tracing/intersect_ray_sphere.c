@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_xpm.c                                       :+:      :+:    :+:   */
+/*   intersect_ray_sphere.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asvirido <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/19 17:12:25 by asvirido          #+#    #+#             */
-/*   Updated: 2017/02/19 17:12:27 by asvirido         ###   ########.fr       */
+/*   Created: 2017/03/31 12:09:38 by asvirido          #+#    #+#             */
+/*   Updated: 2017/03/31 12:09:39 by asvirido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx_src.h"
+#include "../../head.h"
 
-t_xpm	*create_xpm(t_mlx *obj, char *file)
+int 	intersect_ray_sphere(t_rtv1 *rtv1)
 {
-	t_xpm	*new;
+	double		a;
+	double		b;
+	double		c;
+	double		discriminant;
+	t_vector	dist;
 
-	new = (t_xpm*)malloc(sizeof(t_xpm));
-	new->width = 0;
-	new->height = 0;
-	new->bits = 0;
-	new->size_line = 0;
-	new->end = 0;
-	new->xpm = MLX_XPM_FILE(obj->mlx, file, &new->width, &new->height);
-	new->data = CREATE_IMAGE(new->xpm, &new->bits, &new->size_line, &new->end);
-	return (new);
+	dist = subtraction_vector(RAY_ORIGIN, SPHERE_POSITION);
+	a = SCALAR_RAY_DIR;
+	b = 2 * scalar_vector(RAY_DIRECTION, &dist);
+	c = scalar_vector(&dist, &dist) - SPHERE_RADIUS_POW;
+	discriminant = b * b - 4 * a * c;
+	if (discriminant < 0)
+		return (0);
+	return (1);
 }

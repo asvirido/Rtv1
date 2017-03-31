@@ -14,7 +14,7 @@
 #ifndef VECTOR_H
 # define VECTOR_H
 # include <math.h>
-
+# include <stdlib.h>
 typedef	struct	s_vector
 {
 	double		x;
@@ -29,5 +29,6 @@ t_vector	multiplication_vector(t_vector *a, t_vector *b);
 t_vector	product_vectors(t_vector *a, t_vector *b);
 double		scalar_vector(t_vector *a, t_vector *b);
 t_vector	subtraction_vector(t_vector *a, t_vector *b);
+t_vector	*create_vector(void);
 
 #endif

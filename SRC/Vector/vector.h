@@ -22,13 +22,14 @@ typedef	struct	s_vector
 	double		z;
 }				t_vector;
 
-t_vector	addition_vector(t_vector *a, t_vector *b);
+t_vector		addition_vector(t_vector *a, t_vector *b);
 double		cos_angle_between_vector(t_vector *a, t_vector *b);
 double		module_vector(t_vector *a);
-t_vector	multiplication_vector(t_vector *a, t_vector *b);
-t_vector	product_vectors(t_vector *a, t_vector *b);
-double		scalar_vector(t_vector *a, t_vector *b);
-t_vector	subtraction_vector(t_vector *a, t_vector *b);
-t_vector	*create_vector(void);
+t_vector		multiplication_vector(t_vector *a, t_vector *b);
+t_vector		product_vectors(t_vector *a, t_vector *b);
+t_vector		scalar_vector(double c, t_vector *b);
+double		dot_vector(t_vector *a, t_vector *b);
+t_vector		subtraction_vector(t_vector *a, t_vector *b);
+t_vector		*create_vector(void);
 
 #endif

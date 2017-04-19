@@ -21,7 +21,7 @@ double		cos_angle_between_vector(t_vector *a, t_vector *b)
 
 	module_a = module_vector(a);
 	module_b = module_vector(b);
-	scalar_product = scalar_vector(a,b);
+	scalar_product = dot_vector(a,b);
 	angle = scalar_product / (module_a * module_b);
-	return (angle);  
+	return (angle);
 }

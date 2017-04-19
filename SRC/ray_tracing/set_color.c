@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scalar_vector.c                                    :+:      :+:    :+:   */
+/*   set_color.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asvirido <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/15 19:23:31 by asvirido          #+#    #+#             */
-/*   Updated: 2017/04/15 19:23:32 by asvirido         ###   ########.fr       */
+/*   Created: 2017/04/14 17:30:53 by asvirido          #+#    #+#             */
+/*   Updated: 2017/04/14 17:30:53 by asvirido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector.h"
+#include "../../head.h"
 
-t_vector		scalar_vector(double c, t_vector *a)
+void  set_color(t_rtv1 *rtv1, int num_obj)
 {
-   t_vector	new;
+   t_color color;
 
-   new.x = a->x * c;
-   new.y = a->y * c;
-   new.z = a->z * c;
-	return (new);
+   color = get_color(rtv1, num_obj);
+   put_img(rtv1->img,RAY_ORIGIN_X,RAY_ORIGIN_Y,&color);
 }

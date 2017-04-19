@@ -27,11 +27,11 @@ typedef	struct	s_color
 	int			green;
 }				t_color;
 
-typedef struct	s_mlx
+typedef struct s_mlx
 {
-	void	*mlx;
-	void	*win;
-}				t_mlx;
+	void 	*mlx;
+	void 	*win;
+}					t_mlx;
 
 typedef struct	s_img
 {
@@ -57,5 +57,6 @@ t_mlx			*object_mlx(void);
 t_img			*create_img(t_mlx *obj);
 t_xpm			*create_xpm(t_mlx *obj, char *file);
 void 			put_img(t_img *img, int x, int y, t_color *color);
+t_color  	create_color(int color);
 
 #endif

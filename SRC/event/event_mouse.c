@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scalar_vector.c                                    :+:      :+:    :+:   */
+/*   event_mouse.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asvirido <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/15 19:23:31 by asvirido          #+#    #+#             */
-/*   Updated: 2017/04/15 19:23:32 by asvirido         ###   ########.fr       */
+/*   Created: 2017/02/20 15:15:21 by asvirido          #+#    #+#             */
+/*   Updated: 2017/02/20 15:15:22 by asvirido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector.h"
+#include "../../head.h"
 
-t_vector		scalar_vector(double c, t_vector *a)
+int		event_mouse(int keycode, int x, int y, t_rtv1 *rtv1)
 {
-   t_vector	new;
-
-   new.x = a->x * c;
-   new.y = a->y * c;
-   new.z = a->z * c;
-	return (new);
+	printf("keycode mouse = {%d} x %d y %d",keycode,x,y);
+	return (1);
 }

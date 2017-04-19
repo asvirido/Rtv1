@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scalar_vector.c                                    :+:      :+:    :+:   */
+/*   dot_vector.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asvirido <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/15 19:23:31 by asvirido          #+#    #+#             */
-/*   Updated: 2017/04/15 19:23:32 by asvirido         ###   ########.fr       */
+/*   Created: 2017/04/15 19:23:10 by asvirido          #+#    #+#             */
+/*   Updated: 2017/04/15 19:23:13 by asvirido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 
-t_vector		scalar_vector(double c, t_vector *a)
+double		dot_vector(t_vector *a, t_vector *b)
 {
-   t_vector	new;
-
-   new.x = a->x * c;
-   new.y = a->y * c;
-   new.z = a->z * c;
-	return (new);
+	return ((a->x * b->x) + (a->y * b->y) + (a->z * b->z));
 }

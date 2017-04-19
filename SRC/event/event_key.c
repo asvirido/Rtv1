@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scalar_vector.c                                    :+:      :+:    :+:   */
+/*   event_key.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asvirido <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/15 19:23:31 by asvirido          #+#    #+#             */
-/*   Updated: 2017/04/15 19:23:32 by asvirido         ###   ########.fr       */
+/*   Created: 2017/02/18 17:30:27 by asvirido          #+#    #+#             */
+/*   Updated: 2017/02/18 17:30:29 by asvirido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector.h"
+#include "../../head.h"
 
-t_vector		scalar_vector(double c, t_vector *a)
+int		event_key(int keycode, t_rtv1 *rt)
 {
-   t_vector	new;
-
-   new.x = a->x * c;
-   new.y = a->y * c;
-   new.z = a->z * c;
-	return (new);
+	printf("keycode %d\n",keycode);
+	if (keycode == 53)
+		exit(1);
+	return (1);
 }

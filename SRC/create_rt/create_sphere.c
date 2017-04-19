@@ -12,7 +12,7 @@
 
 #include "create_rt.h"
 
-t_sphere	*create_shpere(void)
+t_sphere		*create_shpere(void)
 {
 	t_sphere 	*sphere;
 

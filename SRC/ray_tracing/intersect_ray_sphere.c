@@ -12,20 +12,33 @@
 
 #include "../../head.h"
 
-int 	intersect_ray_sphere(t_rtv1 *rtv1)
+int	check_and_get_t_sphere(double *t, t_val_math val)
 {
-	double		a;
-	double		b;
-	double		c;
-	double		discriminant;
-	t_vector	dist;
-
-	dist = subtraction_vector(RAY_ORIGIN, SPHERE_POSITION);
-	a = SCALAR_RAY_DIR;
-	b = 2 * scalar_vector(RAY_DIRECTION, &dist);
-	c = scalar_vector(&dist, &dist) - SPHERE_RADIUS_POW;
-	discriminant = b * b - 4 * a * c;
-	if (discriminant < 0)
+	if (val.d < 0)
 		return (0);
-	return (1);
+	val.c = sqrt(val.d);
+	val.t0 = (-val.b + val.c) / 2;
+	val.t1 = (-val.b - val.c) / 2;
+	if (val.t0 > val.t1)
+		val.t0 = val.t1;
+	if (val.t0 > 0)
+	{
+		*t = val.t0;
+		return (1);
+	}
+	return (0);
+}
+
+int	intersect_ray_sphere(t_ray *ray, t_sphere *sphere, double *t)
+{
+	t_val_math	val;
+	int			res;
+
+	val.dist = subtraction_vector(RAY_ORIGIN, SPHERE_POSITION);
+	val.a =  dot_vector(RAY_DIRECTION, RAY_DIRECTION);
+	val.b = 2 * dot_vector(RAY_DIRECTION, &val.dist);
+	val.c = dot_vector(&val.dist, &val.dist) - SPHERE_RADIUS_POW;
+	val.d = val.b * val.b - 4 * val.a * val.c;
+	res = check_and_get_t_sphere(t, val);
+	return (res);
 }

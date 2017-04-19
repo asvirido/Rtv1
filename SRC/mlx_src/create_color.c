@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scalar_vector.c                                    :+:      :+:    :+:   */
+/*   create_color.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asvirido <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/15 19:23:31 by asvirido          #+#    #+#             */
-/*   Updated: 2017/04/15 19:23:32 by asvirido         ###   ########.fr       */
+/*   Created: 2017/04/13 15:42:21 by asvirido          #+#    #+#             */
+/*   Updated: 2017/04/13 15:42:22 by asvirido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector.h"
+#include "mlx_src.h"
 
-t_vector		scalar_vector(double c, t_vector *a)
+t_color  create_color(int color)
 {
-   t_vector	new;
+   t_color  new;
 
-   new.x = a->x * c;
-   new.y = a->y * c;
-   new.z = a->z * c;
-	return (new);
+   new.red = (color >> 16);
+   new.green = (color >> 8) - (new.red << 8);
+   new.blue = (color) - (new.red << 16) - (new.green << 8);;
+
+   return (new);
 }

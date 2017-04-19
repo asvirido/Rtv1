@@ -12,7 +12,7 @@
 
 NAME = RTv1
 
-FLAGS = -Wall -Wextra -Werror -c -O3
+FLAGS = -c -O2
 
 MLX = -lmlx -framework OpenGL -framework AppKit
 
@@ -22,7 +22,7 @@ MLX_SRC =	./SRC/mlx_src/create_img.c\
 				./SRC/mlx_src/object_mlx.c\
 				./SRC/mlx_src/create_xpm.c\
 				./SRC/mlx_src/put_img.c\
-				 
+				./SRC/mlx_src/create_color.c\
 
 VECTOR =	./SRC/Vector/addition_vector.c\
 			./SRC/Vector/cos_angle_between_vector.c\
@@ -32,18 +32,29 @@ VECTOR =	./SRC/Vector/addition_vector.c\
 			./SRC/Vector/scalar_vector.c\
 			./SRC/Vector/subtraction_vector.c\
 			./SRC/Vector/create_vector.c\
+			./SRC/Vector/dot_vector.c\
+
+EVENT = 	./SRC/event/destroy.c\
+			./SRC/event/event_key.c\
+			./SRC/event/event_mouse.c\
 
 CREATE_RT =	./SRC/create_rt/create_ray.c\
 				./SRC/create_rt/create_rt.c\
 				./SRC/create_rt/create_sphere.c\
+				./SRC/create_rt/create_plane.c\
 
 RT =	./SRC/ray_tracing/ray_tracing.c\
 		./SRC/ray_tracing/intersect_ray_sphere.c\
+		./SRC/ray_tracing/intersect_ray_plane.c\
+		./SRC/ray_tracing/intersect.c\
+		./SRC/ray_tracing/get_color.c\
+		./SRC/ray_tracing/set_color.c\
 
 SRC =	./SRC/main.c\
-		$(VECTOR)\
-		$(CREATE_RT)\
 		$(MLX_SRC)\
+		$(VECTOR)\
+		$(EVENT)\
+		$(CREATE_RT)\
 		$(RT)\
 
 BINS = $(SRC:.c=.o)

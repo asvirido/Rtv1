@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scalar_vector.c                                    :+:      :+:    :+:   */
+/*   get_color.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asvirido <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/15 19:23:31 by asvirido          #+#    #+#             */
-/*   Updated: 2017/04/15 19:23:32 by asvirido         ###   ########.fr       */
+/*   Created: 2017/04/14 17:04:00 by asvirido          #+#    #+#             */
+/*   Updated: 2017/04/14 17:04:01 by asvirido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector.h"
+#include "../../head.h"
 
-t_vector		scalar_vector(double c, t_vector *a)
+t_color  get_color(t_rtv1 *rtv1, int num_obj)
 {
-   t_vector	new;
+   t_color color;
 
-   new.x = a->x * c;
-   new.y = a->y * c;
-   new.z = a->z * c;
-	return (new);
+   if (rtv1->rt_obj[num_obj].plane != NULL)
+      color= rtv1->rt_obj[num_obj].plane->color;
+   else if (rtv1->rt_obj[num_obj].sphere != NULL)
+      color = rtv1->rt_obj[num_obj].sphere->color;
+   return (color);
 }

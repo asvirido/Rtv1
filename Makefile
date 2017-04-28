@@ -33,6 +33,9 @@ VECTOR =	./SRC/Vector/addition_vector.c\
 			./SRC/Vector/subtraction_vector.c\
 			./SRC/Vector/create_vector.c\
 			./SRC/Vector/dot_vector.c\
+			./SRC/Vector/normal_vector.c\
+			./SRC/Vector/set_vector.c\
+			./SRC/Vector/division_vector.c\
 
 EVENT = 	./SRC/event/destroy.c\
 			./SRC/event/event_key.c\
@@ -42,10 +45,14 @@ CREATE_RT =	./SRC/create_rt/create_ray.c\
 				./SRC/create_rt/create_rt.c\
 				./SRC/create_rt/create_sphere.c\
 				./SRC/create_rt/create_plane.c\
+				./SRC/create_rt/create_cylinder.c\
+				./SRC/create_rt/create_cone.c\
 
 RT =	./SRC/ray_tracing/ray_tracing.c\
 		./SRC/ray_tracing/intersect_ray_sphere.c\
 		./SRC/ray_tracing/intersect_ray_plane.c\
+		./SRC/ray_tracing/intersect_ray_cone.c\
+		./SRC/ray_tracing/intersect_ray_cylinder.c\
 		./SRC/ray_tracing/intersect.c\
 		./SRC/ray_tracing/get_color.c\
 		./SRC/ray_tracing/set_color.c\

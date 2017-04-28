@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_color.c                                        :+:      :+:    :+:   */
+/*   create_cone.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asvirido <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/14 17:30:53 by asvirido          #+#    #+#             */
-/*   Updated: 2017/04/14 17:30:53 by asvirido         ###   ########.fr       */
+/*   Created: 2017/04/26 18:44:51 by asvirido          #+#    #+#             */
+/*   Updated: 2017/04/26 18:44:52 by asvirido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../head.h"
+#include "create_rt.h"
 
-void set_color(t_color *color, int red, int green, int blue)
+t_cone	*create_cone(void)
 {
-   color->red = 0;
-   color->blue = 0;
-   color->green = 0;
+	t_cone	*cone;
+
+	cone = (t_cone*)malloc(sizeof(t_cone) + 1);
+	cone->position = create_vector();
+	cone->direction = create_vector();
+	return (cone);
 }

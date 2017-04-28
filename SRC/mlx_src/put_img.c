@@ -21,9 +21,10 @@ void 			put_img(t_img *img, int x, int y, t_color *color)
    	pix = y * img->size_line + x * 4;
    	if (x < SIZE_Y * SIZE_X * 4)
    	{
-   		img->line[pix] = color->blue;
-   		img->line[pix + 1] = color->green;
-   		img->line[pix + 2] = color->red;
+   		img->line[pix] = (int)color->blue;
+   		img->line[pix + 1] = (int)color->green;
+   		img->line[pix + 2] = (int)color->red;
+		img->line[pix + 3] = (int)color->trans;
    	}
    }
 }

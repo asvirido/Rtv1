@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_color.c                                        :+:      :+:    :+:   */
+/*   create_cylinder.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asvirido <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/14 17:30:53 by asvirido          #+#    #+#             */
-/*   Updated: 2017/04/14 17:30:53 by asvirido         ###   ########.fr       */
+/*   Created: 2017/04/26 14:06:51 by asvirido          #+#    #+#             */
+/*   Updated: 2017/04/26 14:06:52 by asvirido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../head.h"
+#include "create_rt.h"
 
-void set_color(t_color *color, int red, int green, int blue)
+t_cylinder	*create_cylinder(void)
 {
-   color->red = 0;
-   color->blue = 0;
-   color->green = 0;
+	t_cylinder	*cylinder;
+
+	cylinder = (t_cylinder*)malloc(sizeof(t_cylinder) + 1);
+	cylinder->position = create_vector();
+	cylinder->direction = create_vector();
+	return (cylinder);
 }

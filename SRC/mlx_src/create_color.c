@@ -15,10 +15,15 @@
 t_color  create_color(int color)
 {
    t_color  new;
+   int      red;
+   int      blue;
+   int      green;
 
-   new.red = (color >> 16);
-   new.green = (color >> 8) - (new.red << 8);
-   new.blue = (color) - (new.red << 16) - (new.green << 8);;
-
+   red = (color >> 16);
+   green = (color >> 8) - (red << 8);
+   blue = (color) - (red << 16) - (green << 8);
+   new.red = red;
+   new.green = green;
+   new.blue = blue;
    return (new);
 }

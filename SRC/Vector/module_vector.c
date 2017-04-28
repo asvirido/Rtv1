@@ -21,5 +21,5 @@ double		module_vector(t_vector *a)
 	x_2 = a->x * a->x;
 	y_2 = a->y * a->y;
 	z_2 = a->z * a->z;
-	return (sqrt(x_2 + y_2 + z_2));  
+	return (sqrt(x_2 + y_2 + z_2));
 }

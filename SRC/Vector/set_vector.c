@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_color.c                                        :+:      :+:    :+:   */
+/*   set_vector.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asvirido <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/14 17:30:53 by asvirido          #+#    #+#             */
-/*   Updated: 2017/04/14 17:30:53 by asvirido         ###   ########.fr       */
+/*   Created: 2017/04/19 21:39:37 by asvirido          #+#    #+#             */
+/*   Updated: 2017/04/19 21:39:38 by asvirido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../head.h"
+#include "vector.h"
 
-void set_color(t_color *color, int red, int green, int blue)
+void  set_vector(t_vector *new, t_vector *set)
 {
-   color->red = 0;
-   color->blue = 0;
-   color->green = 0;
+   new->x = set->x;
+   new->y = set->y;
+   new->z = set->z;
 }

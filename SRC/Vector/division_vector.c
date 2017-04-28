@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_color.c                                        :+:      :+:    :+:   */
+/*   division_vector.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asvirido <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/14 17:30:53 by asvirido          #+#    #+#             */
-/*   Updated: 2017/04/14 17:30:53 by asvirido         ###   ########.fr       */
+/*   Created: 2017/04/19 21:39:42 by asvirido          #+#    #+#             */
+/*   Updated: 2017/04/19 21:39:42 by asvirido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../head.h"
+#include "vector.h"
 
-void set_color(t_color *color, int red, int green, int blue)
+t_vector division_vector(t_vector *v, double a)
 {
-   color->red = 0;
-   color->blue = 0;
-   color->green = 0;
+   t_vector  new;
+
+   new.x = v->x / a;
+   new.y = v->y / a;
+   new.z = v->z / a;
+   return (new);
 }

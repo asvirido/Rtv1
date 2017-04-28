@@ -31,5 +31,8 @@ t_vector		scalar_vector(double c, t_vector *b);
 double		dot_vector(t_vector *a, t_vector *b);
 t_vector		subtraction_vector(t_vector *a, t_vector *b);
 t_vector		*create_vector(void);
+void  		set_vector(t_vector *new, t_vector *set);
+t_vector		division_vector(t_vector *v, double a);
+t_vector		normal_vector(t_vector *origin, t_vector *ray);
 
 #endif

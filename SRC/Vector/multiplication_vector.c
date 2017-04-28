@@ -17,7 +17,7 @@ t_vector	multiplication_vector(t_vector *a, t_vector *b)
 	t_vector	c;
 
 	c.x = a->x * b->x;
-	c.y = a->y * b->y; 
+	c.y = a->y * b->y;
 	c.z = a->z * b->z;
-	return (c);  
+	return (c);
 }

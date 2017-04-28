@@ -17,18 +17,18 @@ int   intersect_ray_plane(t_ray *ray, t_plane *plane, double *t)
    t_val_math  val;
    int         res;
 
-   val.b = dot_vector(PLANE_NORMAL, RAY_DIRECTION);
-   if (val.b == 0)
-      res = 0;
-   else
+   res = 0;
+   val.d = dot_vector(plane->normal, ray->direction);
+   if (val.d > 0.001)
    {
-      val.dist = subtraction_vector(PLANE_POSITION, RAY_ORIGIN);
-      val.a = dot_vector(PLANE_NORMAL, &val.dist);
-      val.t0 = val.a / val.b;
-      res = ((val.t0 < 0) ? 0 : 1);
-      if (res == 1)
+      val.a = (dot_vector(plane->normal, ray->origin));
+      val.b = -(val.a + plane->distance);
+      val.t0 = val.b / val.d;
+      if (val.t0 > 3)
+      {
          *t = val.t0;
+         res = 1;
+      }
    }
-   printf("b %f\n",val.b);
    return (res);
 }

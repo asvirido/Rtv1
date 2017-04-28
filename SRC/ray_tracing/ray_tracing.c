@@ -12,19 +12,50 @@
 
 #include "../../head.h"
 
+void ft_free(t_rtv1 *rtv1, char *line)
+{
+   int      x;
+   int      y;
+   t_color  color;
+
+   y = 0;
+   color.red = 255;
+   color.blue = 255;
+   color.green = 255;
+   color.trans = 255;
+   while (y < SIZE_Y)
+   {
+      while (x < SIZE_X)
+      {
+         put_img(rtv1->img,x,y,&color);
+         x++;
+      }
+      y++;
+   }
+}
+
 void	ray_tracing(t_rtv1 *rtv1)
 {
-   int     i;
-   
-	while (RAY_ORIGIN_Y < SIZE_Y)
+   t_val_vector   val;
+
+   Y = 0;
+   Z = 0;
+   mlx_clear_window (MLX_MY,WIN_MY);
+   while (Y < SIZE_Y)
 	{
-		RAY_ORIGIN_X = 0;
-		while (RAY_ORIGIN_X < SIZE_X)
+		X = 0;
+		while (X < SIZE_X)
       {
-         intersect(rtv1);
-         RAY_ORIGIN_X++;
+         RT->x = X;
+         RT->y = Y;
+         val.tmp = normal_vector(&val.ray, RAY_ORIGIN);
+         set_vector(RAY_DIRECTION, &val.tmp);
+         val.color = intersect(rtv1);
+         put_img(rtv1->img,X,Y,&val.color);
+         X++;
       }
-		RAY_ORIGIN_Y++;
+		Y++;
 	}
    PUT_IMG_WIN(MLX_MY, WIN_MY, rtv1->img->img, 0, 0);
+   ft_free(rtv1, rtv1->img->line);
 }

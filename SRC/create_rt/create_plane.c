@@ -14,7 +14,7 @@
 
 t_plane		*create_plane(void)
 {
-	t_plane 	*plane;
+	t_plane	*plane;
 
 	plane = (t_plane*)malloc(sizeof(t_plane) + 1);
 	plane->normal = create_vector();

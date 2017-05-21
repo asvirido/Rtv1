@@ -6,15 +6,15 @@
 /*   By: asvirido <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 21:39:37 by asvirido          #+#    #+#             */
-/*   Updated: 2017/04/19 21:39:38 by asvirido         ###   ########.fr       */
+/*   Updated: 2017/05/10 03:24:59 by asvirido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 
-void  set_vector(t_vector *new, t_vector *set)
+void	set_vector(t_vector *new, t_vector *set)
 {
-   new->x = set->x;
-   new->y = set->y;
-   new->z = set->z;
+	new->x = set->x;
+	new->y = set->y;
+	new->z = set->z;
 }

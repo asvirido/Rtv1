@@ -6,7 +6,7 @@
 /*   By: asvirido <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 15:15:21 by asvirido          #+#    #+#             */
-/*   Updated: 2017/02/20 15:15:22 by asvirido         ###   ########.fr       */
+/*   Updated: 2017/05/17 21:53:49 by asvirido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		event_mouse(int keycode, int x, int y, t_rtv1 *rtv1)
 {
-	printf("keycode mouse = {%d} x %d y %d",keycode,x,y);
+	if (keycode == 5 || keycode == 4)
+		zoom(keycode, x, y, rtv1);
 	return (1);
 }
